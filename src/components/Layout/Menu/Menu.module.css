@@ -1,0 +1,37 @@
+.containerMenu{
+  width: 60%;
+  max-width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .85);
+  transition: all .2s;
+  z-index: 1000 !important;
+}
+
+.containerMenuHide{
+  width: 60%;
+  max-width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  background-color: rgba(0, 0, 0, .85);
+  transition: all .2s;
+  z-index: 1000 !important;
+}
+
+.topMenu{
+  padding: 20px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topMenu h1{
+  margin: 0;
+  font-size: 10px;
+}

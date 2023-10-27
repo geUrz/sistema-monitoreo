@@ -1,0 +1,130 @@
+.sectionMain{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleName{
+  padding: 20px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleName h1{
+  font-size: 14.5px;
+  font-weight: 200;
+  font-family: 'Bebas' !important;
+  color: azure;
+}
+
+.containerMain{
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.devBoxBackgroundON{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 5% 5%;
+  background-color: green;
+}
+
+.devBoxBackgroundOFF{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 5% 5%;
+  background-color: var(--background2);
+}
+
+.devStatusOFF{
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 20%;
+  background-color: gray !important;
+}
+
+.devStatusON{
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 20%;
+  background-color: green !important;
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 799px){
+  
+  .titleName h1{
+    font-size: 18px;
+  }
+
+  .containerDevBox{
+    padding: 30px 10px;
+    margin-bottom: 20px;
+    width: 380px;
+
+  }
+
+  .containerDevBox > div:nth-child(2){
+    margin-top: 25px;
+  }
+
+}
+
+@media screen and (min-width: 800px){
+
+  .titleName{
+    height: 100px;
+  }
+  
+  .titleName h1{
+    font-size: 22.5px;
+  }
+
+  .containerMain{
+    max-width: 2500px;
+  }
+
+  .containerDevBox{
+    padding: 30px 10px;
+    margin: 20px;
+    width: 420px;
+
+  }
+
+  .containerDevBox > div:nth-child(2){
+    margin-top: 25px;
+  }
+
+  .containerDevBox > div:nth-child(1) h1{
+    font-size: 16.5px;
+  }
+
+  .devStatusOFF{
+    width: 15px;
+    height: 15px;
+  }
+  
+  .devStatusON{
+    width: 15px;
+    height: 15px;
+  }
+
+}

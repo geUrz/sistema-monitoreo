@@ -1,0 +1,32 @@
+.arrowBack{
+  width: 34px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5%;
+  background-color: rgba(0, 0, 0, .85);
+  position: fixed;
+  top: 25px;
+  left: 22.5px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.arrowBack img{
+  height: 18.5px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 800px){
+
+  .arrowBack{
+    width: 38px;
+    height: 37px;
+  }
+  
+  .arrowBack img{
+    height: 20px;
+  }
+
+}

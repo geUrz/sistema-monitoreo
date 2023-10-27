@@ -1,0 +1,75 @@
+.containerDevBox{
+  padding: 30px 10px;
+  margin: 0 5px 20px 5px;
+  width: 150px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5%;
+  background-color: var(--background1);
+}
+
+.containerDevBox > div:nth-child(1){
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerDevBox > div:nth-child(1) h1{
+  font-size: 12px;
+  font-weight: 200;
+  font-family: 'Bebas' !important;
+  color: azure;
+}
+
+.containerDevBox > div:nth-child(2){
+  margin-top: 15px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.containerDevBox img{
+  height: 40px;
+}
+
+.devBoxBackgroundON{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 5% 5%;
+  background-color: green;
+}
+
+.devBoxBackgroundOFF{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 5% 5%;
+  background-color: var(--background2);
+}
+
+.devStatusOFF{
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 20%;
+  background-color: gray !important;
+}
+
+.devStatusON{
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 20%;
+  background-color: green !important;
+}
