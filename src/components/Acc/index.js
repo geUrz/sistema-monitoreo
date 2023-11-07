@@ -1,3 +1,6 @@
 export * from './Tarjeta'
+export * from './Brazo'
+export * from './Fotocelda'
 export * from './Botonera'
 export * from './Motor'
+export * from './Wire'

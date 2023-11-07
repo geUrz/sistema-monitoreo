@@ -1,14 +1,9 @@
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Image } from 'semantic-ui-react'
 import styles from './TopBar.module.css'
 
-export function TopBar(props) {
-
-  const router = useRouter()
-
-  const {title} = props
+export function TopBar() {
 
   const [hold, setHold] = useState()
 
@@ -57,9 +52,6 @@ export function TopBar(props) {
     <>
 
     <div className={styles.topBar}>
-      <div>
-        <h1>{title}</h1>
-      </div>
       <div  onClick={menuOpen}>
         <Image src={
           menu ? '/img/close.png' : '/img/menu.png'} />

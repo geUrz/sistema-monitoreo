@@ -27,7 +27,7 @@ export default function Home() {
         <div className={styles.containerMain}>
           <Residenciales 
             titleResidencial = 'segovia'
-            link = 'residenciales/segovia'
+            link = '/residenciales/segovia'
             imgName = '/img/residencial.png'
           />
           <Residenciales 

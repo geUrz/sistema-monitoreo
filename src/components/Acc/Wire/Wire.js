@@ -1,8 +1,8 @@
 import { Image } from 'semantic-ui-react'
-import styles from './Brazo.module.css'
+import styles from './Wire.module.css'
 
-export function Brazo(props) {
-
+export function Wire(props) {
+  
   const {AccName, AccImg, AccStatusImg, devBoxBackground} = props
 
   return (

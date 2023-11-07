@@ -3,7 +3,7 @@ import styles from './Fotocelda.module.css'
 
 export function Fotocelda(props) {
 
-  const {AccName, AccImg, AccStatus, AccStatusImg} = props
+  const {AccName, AccImg, AccStatus, AccStatusImg, devBoxBackground1, devBoxBackground2} = props
 
   return (
     <>
@@ -13,11 +13,11 @@ export function Fotocelda(props) {
           <Image src={`${AccImg}`} />
         </div>
         <div className={styles.accBox3}>
-          <div>
+          <div className={`${devBoxBackground1}`}>
             <h1>{AccStatus}</h1> 
           </div>
-          <div>
-            <Image src={`${AccStatusImg}`} />  
+          <div className={`${devBoxBackground2}`}>
+            <Image src={`${AccStatusImg}`} /> 
           </div>
         </div>
       </main>

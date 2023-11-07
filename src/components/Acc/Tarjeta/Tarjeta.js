@@ -3,7 +3,7 @@ import { Image } from 'semantic-ui-react'
 
 export function Tarjeta(props) {
 
-  const {AccName, AccImg, AccStatus} = props
+  const {AccName, AccImg, AccStatus, devBoxBackground} = props
 
   return (
     <>
@@ -12,8 +12,10 @@ export function Tarjeta(props) {
         <div>
           <Image src={`${AccImg}`} />
         </div>
-        <div>
-          <h1>{AccStatus}</h1>
+        <div className={styles.accBox3}>
+          <div className={`${devBoxBackground}`}>
+            <h1>{AccStatus}</h1>
+          </div>
         </div>
       </div>
     </>

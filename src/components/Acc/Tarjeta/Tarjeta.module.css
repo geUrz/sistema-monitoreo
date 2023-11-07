@@ -1,7 +1,7 @@
 .accBox{
   margin-bottom: 10px;
-  width: 120px;
-  height: 130px;
+  width: 130px;
+  height: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,7 @@
   background-color: var(--background3);
 }
 
-.accBox div:nth-child(1){
+.accBox > div:nth-child(1){
   width: 100%;
   height: 15%;
   display: flex;
@@ -18,7 +18,7 @@
   justify-content: center;
 }
 
-.accBox div:nth-child(1) h1{
+.accBox > div:nth-child(1) h1{
   font-size: 8.5px;
   font-weight: 200;
 }
@@ -32,21 +32,22 @@
 }
 
 .accBox div:nth-child(2) img{
-  height: 35px;
+  height: 30px;
 }
 
-.accBox div:nth-child(3){
-  width: 45%;
+.accBox3{
+  width: 100%;
   height: 18%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5%;
-  background-color: green;
 }
 
-.accBox div:nth-child(3) h1{
+.accBox3 h1{
   margin-top: 5px;
   font-size: 8.5px;
+  text-transform: uppercase;
   font-weight: 200;
 }
+
+

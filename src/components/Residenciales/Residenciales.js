@@ -20,9 +20,3 @@ export default function Residenciales(props) {
     </>
   )
 }
-{/* <Devices   
-            link= 'residenciales/segovia'
-            imgName= {devStatus ? '/img/residencial.png' : '/img/barrera_red.png' }
-            devBoxBackground= {devStatus ? `${styles.devBoxBackgroundON}` : `${styles.devBoxBackgroundOFF}` }
-            onOff= {devStatus ? 'ON' : 'OFF'}
-          /> */}

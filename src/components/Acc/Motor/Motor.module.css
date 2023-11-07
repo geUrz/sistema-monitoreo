@@ -1,6 +1,7 @@
 .accBox{
+  padding: 0 5px 5px 5px;
   margin-bottom: 10px;
-  width: 100%;
+  width: 97.5%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -19,7 +20,7 @@
   justify-content: center;
 }
 
-.accBox1 div:nth-child(1){
+.accBox1 > div:nth-child(1){
   width: 100%;
   height: 15%;
   display: flex;
@@ -27,7 +28,7 @@
   justify-content: center;
 }
 
-.accBox1 div:nth-child(1) h1{
+.accBox1 > div:nth-child(1) h1{
   font-size: 8.5px;
   font-weight: 200;
 }
@@ -44,23 +45,19 @@
   height: 60px;
 }
 
-.accBox1 div:nth-child(3){
-  width: 22.5%;
+.accBox3{
+  width: 50.8%;
   height: 18%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 8px;
   border-radius: 5%;
-  background-color: green;
+
 }
 
-.accBox1 div:nth-child(3) img{
-  height: 12.5px;
-}
-
-.accBox1 div:nth-child(3) h1{
-  margin-top: 3px;
+.accBox3 h1{
+  margin-top: 5.5px;
   font-size: 8.5px;
   font-weight: 200;
 }
@@ -73,19 +70,23 @@
  justify-content: center;
 }
 
-.accBox2 h1{
-  margin-top: 20px;
-  font-family: 'Roboto_Thin' !important;
-  font-size: 16px;   
-}
-
-.accBox2 div:nth-child(1), .accBox2 div:nth-child(2), .accBox2 div:nth-child(3){
-  width: 33.33%;
-  height: 100px;
+.accBox2 div{
+  margin: 0 5px 5px 5px;
+  width: 30%;
+  height: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  border-radius: 5%;
+  background-color: var(--background1);
+}
+
+.accBox2 h1{
+  margin-top: 0px;
+  font-family: 'Roboto_Thin' !important;
+  font-size: 16px;   
+  font-weight: 200;
 }
 
 .accBox2 div:nth-child(1) img{

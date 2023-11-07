@@ -7,6 +7,7 @@ export function Motor(props) {
     AccName, 
     AccImg, 
     AccStatus, 
+    devBoxBackground,
     ImgVolt, 
     ImgAmper, 
     ImgWatt,
@@ -23,8 +24,10 @@ export function Motor(props) {
         <div>
           <Image src={`${AccImg}`} />
         </div>
-        <div>
-          <h1>{AccStatus}</h1>
+        <div className={styles.accBox3}>
+          <div className={`${devBoxBackground}`}>
+            <h1>{AccStatus}</h1>
+          </div>
         </div>
       </div>
       <div className={styles.accBox2}>

@@ -1,15 +1,11 @@
-import { useState, useEffect } from 'react'
-import { BasicLayout } from "@/layouts"
-import styles from './segovia.module.css'
-import Devices from "@/components/Devices/Devices"
-import { ArrowBack } from '@/components/ArrowBack'
-import mqtt from 'mqtt'
-
+import { useState, useEffect } from "react";
+import { BasicLayout } from "@/layouts";
+import styles from "./segovia.module.css";
+import Device from "@/components/Device/Device";
+import { ArrowBack } from "@/components/ArrowBack";
 
 export default function Segovia() {
-
-  
-  const clientId = 'gera31'
+  /* const clientId = 'gera31'
   const username = 'emqx'
   const password = 'public'
 
@@ -61,110 +57,174 @@ export default function Segovia() {
       setDevStatus(false)
     }
   
-  })  
+  })  */
 
-const [devStatus, setDevStatus] = useState()
+  const [devStatus, setDevStatus] = useState(true)
 
-useEffect(() => {
-   
-}, [devStatus])
-
-
-
-
-
+  useEffect(() => {}, [devStatus])
 
   return (
-    <BasicLayout relative title='segovia'>
+    <BasicLayout relative>
+      
+      <ArrowBack title='segovia' displayHome={false} />
 
-      <ArrowBack />
-
-      <div className={styles.sectionMain} style={{background : false ? 'azure' : ''}}>
+      <div
+        className={styles.sectionMain}
+        style={{ background: false ? "azure" : "" }}
+      >
         <div className={styles.containerMain}>
-          <div className={styles.containerDevBox} style={{background : false ? 'azure' : ''}}>
-            <div><h1>Barrera Residentes</h1></div>
+          <div
+            className={styles.containerDevBox}
+            style={{ background: false ? "azure" : "" }}
+          >
             <div>
-              <Devices 
-                link= '/barreraentrada'
-                devName= 'Entrada'
-                imgName= {devStatus ? '/img/barrera_wh.png' : '/img/barrera_red.png' }
-                devBoxBackground= {devStatus ? `${styles.devBoxBackgroundON}` : `${styles.devBoxBackgroundOFF}` }
-                onOff= {devStatus ? 'ON' : 'OFF'}
+              <h1>Barrera Residentes</h1>
+            </div>
+            <div>
+              <Device
+                link="/devices/segovia/barreraresidentesentrada"
+                devName="Entrada"
+                imgName={
+                  devStatus ? "/img/barrera_wh.png" : "/img/barrera_red.png"
+                }
+                devBoxBackground={
+                  devStatus
+                    ? `${styles.devBoxBackgroundON}`
+                    : `${styles.devBoxBackgroundOFF}`
+                }
+                onOff={devStatus ? "ON" : "OFF"}
               />
-              <Devices 
-                devName= 'Salida'
-                imgName= {devStatus ? '/img/barrera_wh.png' : '/img/barrera_red.png' }
-                devBoxBackground= {devStatus ? `${styles.devBoxBackgroundON}` : `${styles.devBoxBackgroundOFF}` }
-                onOff= {devStatus ? 'ON' : 'OFF'}
+              <Device
+              link="/devices/segovia/barreraresidentessalida"
+                devName="Salida"
+                imgName={
+                  devStatus ? "/img/barrera_wh.png" : "/img/barrera_red.png"
+                }
+                devBoxBackground={
+                  devStatus
+                    ? `${styles.devBoxBackgroundON}`
+                    : `${styles.devBoxBackgroundOFF}`
+                }
+                onOff={devStatus ? "ON" : "OFF"}
               />
             </div>
           </div>
           <div className={styles.containerDevBox}>
-            <div><h1>Barrera Visitas</h1></div>
             <div>
-              <Devices 
-                devName= 'Entrada'
-                imgName= {devStatus ? '/img/barrera_wh.png' : '/img/barrera_red.png' }
-                devBoxBackground= {devStatus ? `${styles.devBoxBackgroundON}` : `${styles.devBoxBackgroundOFF}` }
-                onOff= {devStatus ? 'ON' : 'OFF'}
+              <h1>Barrera Visitas</h1>
+            </div>
+            <div>
+              <Device
+              link="/devices/segovia/barreravisitasentrada"
+                devName="Entrada"
+                imgName={
+                  devStatus ? "/img/barrera_wh.png" : "/img/barrera_red.png"
+                }
+                devBoxBackground={
+                  devStatus
+                    ? `${styles.devBoxBackgroundON}`
+                    : `${styles.devBoxBackgroundOFF}`
+                }
+                onOff={devStatus ? "ON" : "OFF"}
               />
-              <Devices 
-                devName= 'Salida'
-                imgName= {devStatus ? '/img/barrera_wh.png' : '/img/barrera_red.png' }
-                devBoxBackground= {devStatus ? `${styles.devBoxBackgroundON}` : `${styles.devBoxBackgroundOFF}` }
-                onOff= {devStatus ? 'ON' : 'OFF'}
+              <Device
+                link="/devices/segovia/barreravisitassalida"
+                devName="Salida"
+                imgName={
+                  devStatus ? "/img/barrera_wh.png" : "/img/barrera_red.png"
+                }
+                devBoxBackground={
+                  devStatus
+                    ? `${styles.devBoxBackgroundON}`
+                    : `${styles.devBoxBackgroundOFF}`
+                }
+                onOff={devStatus ? "ON" : "OFF"}
               />
             </div>
           </div>
           <div className={styles.containerDevBox}>
-            <div><h1>Lector Tag</h1></div>
             <div>
-              <Devices 
-                devName= 'Entrada'
-                imgName= {devStatus ? '/img/lector_wh.png' : '/img/lector_red.png' }
-                devBoxBackground= {devStatus ? `${styles.devBoxBackgroundON}` : `${styles.devBoxBackgroundOFF}` }
-                onOff= {devStatus ? 'ON' : 'OFF'}
+              <h1>Lector Tag</h1>
+            </div>
+            <div>
+              <Device
+                link="/devices/segovia/lectortagentrada"
+                devName="Entrada"
+                imgName={
+                  devStatus ? "/img/lector_wh.png" : "/img/lector_red.png"
+                }
+                devBoxBackground={
+                  devStatus
+                    ? `${styles.devBoxBackgroundON}`
+                    : `${styles.devBoxBackgroundOFF}`
+                }
+                onOff={devStatus ? "ON" : "OFF"}
               />
-              <Devices 
-                devName= 'Salida'
-                imgName= {devStatus ? '/img/lector_wh.png' : '/img/lector_red.png' }
-                devBoxBackground= {devStatus ? `${styles.devBoxBackgroundON}` : `${styles.devBoxBackgroundOFF}` }
-                onOff= {devStatus ? 'ON' : 'OFF'}
+              <Device
+                link="/devices/segovia/lectortagsalida"
+                devName="Salida"
+                imgName={
+                  devStatus ? "/img/lector_wh.png" : "/img/lector_red.png"
+                }
+                devBoxBackground={
+                  devStatus
+                    ? `${styles.devBoxBackgroundON}`
+                    : `${styles.devBoxBackgroundOFF}`
+                }
+                onOff={devStatus ? "ON" : "OFF"}
               />
             </div>
           </div>
           <div className={styles.containerDevBox}>
-            <div><h1>Cerco Eléctrico</h1></div>
             <div>
-              <Devices 
-                devName= 'Calet'
-                imgName= {devStatus ? '/img/cerco_wh.png' : '/img/cerco_red.png' }
-                devBoxBackground= {devStatus ? `${styles.devBoxBackgroundON}` : `${styles.devBoxBackgroundOFF}` }
-                onOff= {devStatus ? 'ON' : 'OFF'}
+              <h1>Cerco Eléctrico</h1>
+            </div>
+            <div>
+              <Device
+                link="/devices/segovia/cercoelectricocalet"
+                devName="Calet"
+                imgName={devStatus ? "/img/cerco_wh.png" : "/img/cerco_red.png"}
+                devBoxBackground={
+                  devStatus
+                    ? `${styles.devBoxBackgroundON}`
+                    : `${styles.devBoxBackgroundOFF}`
+                }
+                onOff={devStatus ? "ON" : "OFF"}
               />
-              <Devices 
-                devName= 'Leon'
-                imgName= {devStatus ? '/img/cerco_wh.png' : '/img/cerco_red.png' }
-                devBoxBackground= {devStatus ? `${styles.devBoxBackgroundON}` : `${styles.devBoxBackgroundOFF}` }
-                onOff= {devStatus ? 'ON' : 'OFF'}
+              <Device
+                devName="Leon"
+                imgName={devStatus ? "/img/cerco_wh.png" : "/img/cerco_red.png"}
+                devBoxBackground={
+                  devStatus
+                    ? `${styles.devBoxBackgroundON}`
+                    : `${styles.devBoxBackgroundOFF}`
+                }
+                onOff={devStatus ? "ON" : "OFF"}
               />
-              <Devices 
-                devName= 'Paramo'
-                imgName= {devStatus ? '/img/cerco_wh.png' : '/img/cerco_red.png' }
-                devBoxBackground= {devStatus ? `${styles.devBoxBackgroundON}` : `${styles.devBoxBackgroundOFF}` }
-                onOff= {devStatus ? 'ON' : 'OFF'}
+              <Device
+                devName="Paramo"
+                imgName={devStatus ? "/img/cerco_wh.png" : "/img/cerco_red.png"}
+                devBoxBackground={
+                  devStatus
+                    ? `${styles.devBoxBackgroundON}`
+                    : `${styles.devBoxBackgroundOFF}`
+                }
+                onOff={devStatus ? "ON" : "OFF"}
               />
-              <Devices 
-                devName= 'Yza'
-                imgName= {devStatus ? '/img/cerco_wh.png' : '/img/cerco_red.png' }
-                devBoxBackground= {devStatus ? `${styles.devBoxBackgroundON}` : `${styles.devBoxBackgroundOFF}` }
-                onOff= {devStatus ? 'ON' : 'OFF'}
+              <Device
+                devName="Yza"
+                imgName={devStatus ? "/img/cerco_wh.png" : "/img/cerco_red.png"}
+                devBoxBackground={
+                  devStatus
+                    ? `${styles.devBoxBackgroundON}`
+                    : `${styles.devBoxBackgroundOFF}`
+                }
+                onOff={devStatus ? "ON" : "OFF"}
               />
             </div>
           </div>
         </div>
       </div>
-
     </BasicLayout>
-  )
+  );
 }
