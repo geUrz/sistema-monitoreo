@@ -5,7 +5,7 @@ import { ArrowBackHome } from "@/components/ArrowBackHome";
 
 export default function Lectortagsalida() {
 
-  const [devStatus, setDevStatus] = useState(true)
+  const [devStatus, setDevStatus] = useState(false)
 
   useEffect(() => {}, [devStatus])
 
