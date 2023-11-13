@@ -1,13 +1,8 @@
-'use client'
-
 import { useState, useEffect } from "react";
 import { BasicLayout } from "@/layouts";
 import styles from "./segovia.module.css";
 import Device from "@/components/Device/Device";
 import { ArrowBack } from "@/components/ArrowBack";
-import Head from "next/head";
-import Script from "next/script";
-import mqtt from 'mqtt' 
 
 
 export default function Segovia() {  
@@ -37,73 +32,13 @@ export default function Segovia() {
 
   useEffect(() => {}, [devStatus]) */
 
-        const clientId = 'gera31'
-        const username = 'emqx'
-        const password = 'public'
-
-        const client = mqtt.connect('ws://158.101.42.167:8073/mqtt', {
-        clientId,
-        username,
-        password,
-        clean: true,
-        connectTimeout: 30*1000,
-        reconnectPeriod: 4000,
-        rejectUnauthorized: false
-        })
+        
   
 
   return (
     <BasicLayout relative>
 
-      <Head>
-
-        <Script>{`
-        
-        
-  
-        ${client.subscribe('gera/gera31/casa/#', { qos: 0 }, (error) => {
-          if ( !error ){
-            console.log('Suscripción Exitosa')
-    
-        }
-        else{
-          console.log('Suscripción Fallida')
-        }
-      })}
-  
-      ${client.publish('topic', 'message', (error) => {
-      console.log(error || 'Mensaje Enviado')
-      })}
-        
-    
-    
-    client.on('reconnect', (error) => {
-      console.log('Error al Reconectar:', error)
-      })
       
-    ${client.on('error', (error) => {
-      console.log('Error de Conexión:', error)
-    })}
-
-      ${client.on('message', (topic, message) => {
-      console.log('Mensaje Recibido:', topic, '=>' , message.toString())
-            
-      var msj = message.toString()
-    
-      if(msj == "1"){
-        //alert('ENCENDIDO')
-        setDevStatus(true)
-      }
-      if(msj == "0"){
-        //alert('APAGADO')
-        setDevStatus(false)
-      }
-    
-    })}
-        
-        `}</Script>
-
-      </Head>
       
       <ArrowBack title='segovia' displayHome={false} />
 
