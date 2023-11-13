@@ -32,17 +32,17 @@ export function Motor(props) {
       </div>
       <div className={styles.accBox2}>
         <div>
-          <Image src={`${ImgVolt}`} />
-          <h1>{Volt}</h1>
+          {/* <Image src={`${ImgVolt}`} />
+          <h1>{Volt}</h1> */}
         </div>
-        <div>
+        {/* <div>
           <Image src={`${ImgAmper}`} />
           <h1>{Amper}</h1>
         </div>
         <div>
           <Image src={`${ImgWatt}`} />
           <h1>{Watt}</h1>
-        </div>
+        </div> */}
       </div>
     </div>
   )

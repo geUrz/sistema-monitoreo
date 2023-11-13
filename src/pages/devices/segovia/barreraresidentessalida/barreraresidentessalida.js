@@ -39,7 +39,7 @@ export default function Barreraresidentessalida() {
             <Brazo 
               AccName = 'Brazo'
               AccImg = {devStatus ? '/img/barrera_wh.png' : '/img/barrera_red.png' }
-              AccStatusImg = {devStatus ? '/img/circuit_open.png' : '/img/circuit_close.png' }
+              AccStatusImg = {devStatus ? '/img/circuit_close.png' : '/img/circuit_open.png' }
               devBoxBackground={
                 devStatus
                   ? `${styles.devBoxBackgroundON}`
@@ -49,8 +49,8 @@ export default function Barreraresidentessalida() {
             <Fotocelda
               AccName = 'Fotocelda'
               AccImg = {devStatus ? '/img/fotocelda_wh.png' : '/img/fotocelda_red.png' }
-              AccStatus = {devStatus ? 'OFF' : 'ON'}
-              AccStatusImg = {devStatus ? '/img/circuit_open.png' : '/img/circuit_close.png' }
+              AccStatus = {devStatus ? 'ON' : 'OFF'}
+              AccStatusImg = {devStatus ? '/img/circuit_close.png' : '/img/circuit_open.png' }
               devBoxBackground1={
                 devStatus
                   ? `${styles.devBoxBackgroundON}`
@@ -65,8 +65,8 @@ export default function Barreraresidentessalida() {
             <Botonera
               AccName = 'Botonera'
               AccImg = {devStatus ? '/img/boton_wh.png' : '/img/boton_red.png' }
-              AccStatusImgUp = {devStatus ? '/img/circuit_open.png' : '/img/circuit_close.png' }
-              AccStatusImgDown = {devStatus ? '/img/circuit_open.png' : '/img/circuit_close.png' }
+              AccStatusImgUp = {devStatus ? '/img/circuit_close.png' : '/img/circuit_open.png' }
+              AccStatusImgDown = {devStatus ? '/img/circuit_close.png' : '/img/circuit_open.png' }
               devBoxBackground1={
                 devStatus
                   ? `${styles.devBoxBackgroundON}`

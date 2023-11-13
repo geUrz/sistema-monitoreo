@@ -5,7 +5,7 @@ import { ArrowBackHome } from "@/components/ArrowBackHome";
 
 export default function Barreravisitassalida() {
 
-  const [devStatus, setDevStatus] = useState(false)
+  const [devStatus, setDevStatus] = useState(true)
 
   useEffect(() => {}, [devStatus])
 
@@ -37,7 +37,7 @@ export default function Barreravisitassalida() {
               AccImg={
                 devStatus ? "/img/barrera_wh.png" : "/img/barrera_red.png"
               }
-              AccStatusImg = {devStatus ? '/img/circuit_open.png' : '/img/circuit_close.png' }
+              AccStatusImg = {devStatus ? '/img/circuit_close.png' : '/img/circuit_open.png' }
               devBoxBackground={
                 devStatus
                   ? `${styles.devBoxBackgroundON}`
@@ -49,9 +49,9 @@ export default function Barreravisitassalida() {
               AccImg={
                 devStatus ? "/img/fotocelda_wh.png" : "/img/fotocelda_red.png"
               }
-              AccStatus={devStatus ? "OFF" : "ON"}
+              AccStatus={devStatus ? "ON" : "OFF"}
               AccStatusImg={
-                devStatus ? "/img/circuit_open.png" : "/img/circuit_close.png"
+                devStatus ? "/img/circuit_close.png" : "/img/circuit_open.png"
               }
               devBoxBackground1={
                 devStatus
@@ -68,10 +68,10 @@ export default function Barreravisitassalida() {
               AccName="Botonera"
               AccImg={devStatus ? "/img/boton_wh.png" : "/img/boton_red.png"}
               AccStatusImgUp={
-                devStatus ? "/img/circuit_open.png" : "/img/circuit_close.png"
+                devStatus ? "/img/circuit_close.png" : "/img/circuit_open.png"
               }
               AccStatusImgDown={
-                devStatus ? "/img/circuit_open.png" : "/img/circuit_close.png"
+                devStatus ? "/img/circuit_close.png" : "/img/circuit_open.png"
               }
               devBoxBackground1={
                 devStatus
