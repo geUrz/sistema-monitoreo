@@ -32,47 +32,47 @@ export default function Home() {
           />
           <Residenciales 
             titleResidencial = 'san miguel i'
-            link = 'residenciales/sanmigueli'
+            link = '/residenciales/sanmiguelI'
             imgName = '/img/residencial.png'
           />
           <Residenciales 
             titleResidencial = 'san miguel ii'
-            link = 'residenciales/sanmiguelii'
+            link = '/residenciales/sanmiguelII'
             imgName = '/img/residencial.png'
           />
           <Residenciales 
             titleResidencial = 'san agustin'
-            link = 'residenciales/sanagustin'
+            link = '/residenciales/sanagustin'
             imgName = '/img/residencial.png'
           />
           <Residenciales 
             titleResidencial = 'laguna azul'
-            link = 'residenciales/lagunaazul'
+            link = '/residenciales/lagunaazul'
             imgName = '/img/residencial.png'
           />
           <Residenciales 
             titleResidencial = 'el caguamon'
-            link = 'residenciales/elcaguamon'
+            link = '/residenciales/elcaguamon'
             imgName = '/img/residencial.png'
           />
           <Residenciales 
             titleResidencial = 'el marinero'
-            link = 'residenciales/elmarinero'
+            link = '/residenciales/elmarinero'
             imgName = '/img/residencial.png'
           />
           <Residenciales 
             titleResidencial = 'salon platino'
-            link = 'residenciales/salonplatino'
+            link = '/residenciales/salonplatino'
             imgName = '/img/residencial.png'
           />
           <Residenciales 
             titleResidencial = 'los reyes'
-            link = 'residenciales/losreyes'
+            link = '/residenciales/losreyes'
             imgName = '/img/residencial.png'
           />
           <Residenciales 
             titleResidencial = 'pitufos transportes'
-            link = 'residenciales/pitufostransportes'
+            link = '/residenciales/pitufostransportes'
             imgName = '/img/residencial.png'
           />
           {/* <div className={styles.containerDevBox} style={{background : false ? 'azure' : ''}}>

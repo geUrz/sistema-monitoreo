@@ -1,206 +1,143 @@
 .topBar{
+  padding: 10px;
   width: 100%;
-  height: auto;
+  height: 60px;
+  background-color: rgb(0, 0, 0, .85);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   position: fixed;
-  top: 22.5px;
-  right: 22.5px;
   z-index: 100; 
-}
-
-.topBar div:nth-child(1){
-  width: 36px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5%;
-  background-color: rgba(0, 0, 0, .85);
-  cursor: pointer;
   
 }
 
 .topBar img{
-  width: 20px;
-  height: 18px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.topBar svg, .topBar path{
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.logo img{
+  height: 50px;
   cursor: pointer;
 }
 
 .hold{
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
 }
 
-.hold img{
-  width: 12.5px;
-  height: 10px;
+.hold svg, .hold path{
+  font-size: 14px;
   cursor: pointer;
+}
+
+.iconLockClose path{
+  color: gray;
 }
 
 .topMenu{
-  padding: 20px;
   width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.topMenu h1{
-  margin: 0;
-  font-size: 12.5px;
-}
-
-.topMenu img{
-  height: 15px;
-  cursor: pointer;
-}
-
-.home{
-  margin-top: 10px;
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.home div{
-  width: 50%;
-  height: 20px;
-  display: flex;
-  align-items: center;
-}
-
-.home img{
-  width: 13.5px;
-  height: 11.5px;
-}
-
-.logo{
+  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.logo img{
-  height: 30px;
+.topMenu svg, .topMenu path{
+  font-size: 38px;
+  cursor: pointer;
 }
 
-.logo h1{
+.topMenu h1{
   margin-top: 10px;
-  font-size: 10px;
-  font-weight: 200;
+  font-size: 16px;
+  font-weight: 200 !important;
 }
-
 
 .containerMenu{
-  width: 50%;
+  width: 60%;
   max-width: 230px;
   height: 100vh;
   position: fixed;
+  top: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, .85);
-  transition: all .25s;
+  transition: all .2s;
   z-index: 1000 !important;
 }
 
-.containerMenuOpen{
-  left: -0;
-  transition: all .25s;
-}
-
-.containerMenuClose{
+.containerMenuHide{
+  width: 60%;
+  max-width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
   left: -100%;
-  transition: all .25s;
+  background-color: rgba(0, 0, 0, .85);
+  transition: all .2s;
+  z-index: 1000 !important;
 }
 
-.listaResidenciales{
+.listResidential{
   width: 100%;
   height: auto;
 }
 
-.listaResidenciales div{
+.listResidential h1{
+  font-size: 12px;
+  font-weight: 200 !important;
+  cursor: pointer;
+}
+
+.listResidential a{
+  padding: 0 5px 0 10px;
   width: 100%;
-  height: 30px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
 }
 
-.listaResidenciales div div:nth-child(1){
-  margin-left: 15px;
-  font-size: 10px;
-  font-weight: 200;
+.listResidential a:hover{
+  background-color: red;
 }
 
-.listaResidenciales div div:nth-child(2){
-  margin-right: 10PX;
-  width: 25px;
-  height: 12.5px;
+.listResidential a:active{
+  background-color: red;
+}
+
+.statusON, .statusOFF{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
   background-color: green;
+  cursor: pointer;
 }
 
-.listaResidenciales div:hover{
-  background-color: var(--background2);
+.statusOFF{
+  background-color: red;
 }
 
+.logoBottom{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 50px;
+}
 
-@media screen and (min-width: 800px){
-
-  .topBar div:nth-child(1){
-    height: 42.5px;
-  }
-
-  .topBar div:nth-child(2){
-    width: 42.5px;
-    height: 42.5px;
-  }
-
-  .topBar img{
-    width: 25px;
-    height: 22.5px;
-  }
-
-  .topBar h1{
-    font-size: 20px;
-  }
-
-  .hold img{
-    width: 15px;
-    height: 12.5px;
-  }
-  
-  .logo img{
-    height: 35px;
-  }
-  
-  .logo h1{
-    margin-top: 10px;
-    font-size: 12px;
-  }
-  
-  .home img{
-    width: 16.5px;
-    height: 14.5px;
-  }
-
-  .listaResidenciales div{
-    height: 50px;
-  }
-
-  .listaResidenciales div div:nth-child(1){
-    font-size: 12px;
-  }
-  
-  .listaResidenciales div div:nth-child(2){
-    width: 30px;
-    height: 18px;
-  }
-
+.logoBottom img{
+  height: 25px;
+  cursor: pointer;
 }

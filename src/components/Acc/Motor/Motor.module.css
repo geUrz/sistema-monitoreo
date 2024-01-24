@@ -70,7 +70,7 @@
  justify-content: center;
 }
 
-.accBox2 div{
+.progressWatt{
   margin: 0 5px 5px 5px;
   width: 150px;
   height: 150px;
@@ -79,16 +79,16 @@
   align-items: center;
   justify-content: space-evenly;
   border-radius: 50%;
-  background: 
+  /* background: 
     linear-gradient(
-      10deg,
-      red 50%,
-      rgba(255, 255, 255, .5) 50%
-  );
+      50deg,
+      green 50%,
+      rgba(0, 128, 0, .25) 50%
+  ); */
   position: relative;
 }
 
-.accBox2 div:before{
+.progressWatt:before{
   content: '';
   padding: 15px;
   width: 150px;
@@ -98,14 +98,19 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: var(--background3) content-box;
+  /* background: var(--background3) content-box; */
+  background: conic-gradient(green 25%, rgba(0, 128, 0, .25) 0);
+  mask: radial-gradient(white 55%, transparent 0);
+  mask-mode: alpha;
+  -webkit-mask: radial-gradient(#0000 55%, #000 0);
+  -webkit-mask-mode: alpha;
+  transform: rotate(-90deg);
 }
 
-.accBox2 div:after{
+.progressWatt:after{
   content: '';
   width: 150px;
   height: 150px;
-  border-radius: 50%;
   border-radius: 50%;
   position: absolute;
   top: 0;
@@ -114,7 +119,7 @@
     transparent 50%,
     var(--background3) 50%
   );
-  transform: scale(1.1);
+  transform: scale(1.1); 
 }
 
 .accBox2 h1{

@@ -31,7 +31,7 @@ export function Motor(props) {
         </div>
       </div>
       <div className={styles.accBox2}>
-        <div>
+        <div className={styles.progressWatt}>
           {/* <Image src={`${ImgVolt}`} />
           <h1>{Volt}</h1> */}
         </div>

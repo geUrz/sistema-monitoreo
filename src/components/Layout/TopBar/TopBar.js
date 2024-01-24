@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Image } from 'semantic-ui-react'
+import { FaBars, FaLock, FaLockOpen, FaTimes, FaUserCircle } from 'react-icons/fa'
 import styles from './TopBar.module.css'
 
 export function TopBar() {
+
+  const [status, setStatus] = useState(true)
 
   const [hold, setHold] = useState()
 
@@ -14,13 +17,13 @@ export function TopBar() {
   }
 
   const menuOpen = () => {
-    if(hold === false && menu === false){
+    if (hold === false && menu === false) {
       setMenu(true)
     }
-    if(hold === false && menu === true){
+    if (hold === false && menu === true) {
       setMenu(false)
     }
-    if(hold === true && menu === true){
+    if (hold === true && menu === true) {
       setMenu(true)
     }
   }
@@ -31,7 +34,7 @@ export function TopBar() {
     const menuLS = localStorage.getItem('menu')
     setMenu(menuLS == 'true')
 
-    if(holdLS == 'false'){
+    if (holdLS == 'false') {
       const menuLS = localStorage.getItem('menu')
       setMenu(menuLS == 'false')
     }
@@ -41,105 +44,134 @@ export function TopBar() {
   const menuHold = () => {
     localStorage.setItem('hold', !hold)
     localStorage.setItem('menu', menu)
-    setHold(!hold)  
-    setMenu(menu)  
-
-    
-     
+    setHold(!hold)
+    setMenu(menu)
   }
 
   return (
     <>
 
-    <div className={styles.topBar}>
-      <div  onClick={menuOpen}>
-        <Image src={
-          menu ? '/img/close.png' : '/img/menu.png'} />
-      </div>
-    </div>
-
-
-
-    <div className= {styles.containerMenu} style={{left : menu ? '0' : '-100%'}}>
-      <div className={styles.hold} onClick={menuHold}>
-        <Image src={hold ? '/img/lock_red.png' : '/img/lock_wh.png' } />
-      </div>
-      <div className={styles.topMenu}>
-        <div className={styles.logo}>
-          <Image src='/img/logo.jpeg' alt='Logo' />
-          <h1>Sistema de Monitoreo</h1>
+      <div className={styles.topBar}>
+        <div>
+          <Image src='/img/logo.png' alt='Logo' />
         </div>
-        <div className={styles.home}>
-          <Link href='/home'>
-            <Image 
-              src='/img/home.png' alt='home' 
-              onClick={menuOpen} />
-          </Link>
+        <div onClick={menuOpen}>
+          {menu ? (
+            <FaTimes />
+          ) : (
+            <FaBars />
+          )}
         </div>
-      </div>   
-      <div className={styles.listaResidenciales}>
-        <Link href='/residenciales/segovia'>
-          <div>
-            <div>Segovia</div>
-            <div></div>
-          </div>
-        </Link>
-        <Link href='/home'>
-          <div>
-            <div>San Miguel I</div>
-            <div></div>
-          </div>
-        </Link>
-        <Link href='/home'>
-          <div>
-            <div>San Miguel II</div>
-            <div></div>
-          </div>
-        </Link>
-        <Link href='/home'>
-          <div>
-            <div>San Agustin</div>
-            <div></div>
-          </div>
-        </Link>
-        <Link href='/home'>
-          <div>
-            <div>Laguna Azul</div>
-            <div></div>
-          </div>
-        </Link>
-        <Link href='/home'>
-          <div>
-            <div>El Caguamon</div>
-            <div></div>
-          </div>
-        </Link>
-        <Link href='/home'>
-          <div>
-            <div>El Marinero</div>
-            <div></div>
-          </div>
-        </Link>
-        <Link href='/home'>
-          <div>
-            <div>Salon Platino</div>
-            <div></div>
-          </div>
-        </Link>
-        <Link href='/home'>
-          <div>
-            <div>Los Reyes</div>
-            <div></div>
-          </div>
-        </Link>
-        <Link href='/home'>
-          <div>
-            <div>Transportes Pitufos</div>
-            <div></div>
-          </div>
-        </Link>
-      </div>   
-    </div>
+      </div>
+
+
+
+      <div className={styles.containerMenu} style={{ left: menu ? '0' : '-100%' }}>
+        <div className={styles.hold} onClick={menuHold}>
+          {hold ? (
+            <FaLock className={styles.iconLockClose} />
+          ) : (
+            <FaLockOpen />
+          )}
+        </div>
+        <div className={styles.topMenu}>
+          <FaUserCircle />
+          <h1>admin</h1>
+        </div>
+        <div className={styles.listResidential}>
+            <Link href='/residenciales/segovia'>
+              <div><h1>Segovia</h1></div>
+              <div className={status ? 
+                `${styles.statusON}` : 
+                `${styles.statusOFF}`
+                }>
+              </div>
+            </Link>
+            <Link href='/residenciales/segovia'>
+              <div><h1>San Miguel I</h1></div>
+              <div className={status ? 
+                `${styles.statusON}` : 
+                `${styles.statusOFF}`
+                }>
+              </div>
+            </Link>
+            <Link href='/residenciales/segovia'>
+              <div><h1>San Miguel II</h1></div>
+              <div className={status ? 
+                `${styles.statusON}` : 
+                `${styles.statusOFF}`
+                }>
+              </div>
+            </Link>
+            <Link href='/residenciales/segovia'>
+              <div><h1>Caguamon</h1></div>
+              <div className={status ? 
+                `${styles.statusON}` : 
+                `${styles.statusOFF}`
+                }>
+              </div>
+            </Link>
+            <Link href='/residenciales/segovia'>
+              <div><h1>Pretty Woman</h1></div>
+              <div className={status ? 
+                `${styles.statusON}` : 
+                `${styles.statusOFF}`
+                }>
+              </div>
+            </Link>
+            <Link href='/residenciales/segovia'>
+              <div><h1>Laguna Azul</h1></div>
+              <div className={status ? 
+                `${styles.statusON}` : 
+                `${styles.statusOFF}`
+                }>
+              </div>
+            </Link>
+            <Link href='/residenciales/segovia'>
+              <div><h1>Marinero</h1></div>
+              <div className={status ? 
+                `${styles.statusON}` : 
+                `${styles.statusOFF}`
+                }>
+              </div>
+            </Link>
+            <Link href='/residenciales/segovia'>
+              <div><h1>Salón Platino</h1></div>
+              <div className={status ? 
+                `${styles.statusON}` : 
+                `${styles.statusOFF}`
+                }>
+              </div>
+            </Link>
+            <Link href='/residenciales/segovia'>
+              <div><h1>Jardin Azul</h1></div>
+              <div className={status ? 
+                `${styles.statusON}` : 
+                `${styles.statusOFF}`
+                }>
+              </div>
+            </Link>
+            <Link href='/residenciales/segovia'>
+              <div><h1>Segovia</h1></div>
+              <div className={status ? 
+                `${styles.statusON}` : 
+                `${styles.statusOFF}`
+                }>
+              </div>
+            </Link>
+            <Link href='/residenciales/segovia'>
+              <div><h1>Segovia</h1></div>
+              <div className={status ? 
+                `${styles.statusON}` : 
+                `${styles.statusOFF}`
+                }>
+              </div>
+            </Link>
+        </div>
+        <div className={styles.logoBottom}>
+          <Image src='/img/logo.png' alt='Logo' />
+        </div>
+      </div>
     </>
   )
 }

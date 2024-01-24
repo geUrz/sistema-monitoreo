@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
-import { BasicLayout } from "@/layouts";
-import styles from "./segovia.module.css";
-import Device from "@/components/Device/Device";
-import { ArrowBack } from "@/components/ArrowBack";
+'use client'
+
+import { useState, useEffect } from "react"
+import { BasicLayout } from "@/layouts"
+import styles from "./segovia.module.css"
+import Device from "@/components/Device/Device"
+import { ArrowBack } from "@/components/ArrowBack"
+import mqtt from 'mqtt' 
 
 
 export default function Segovia() {  
@@ -11,34 +14,64 @@ export default function Segovia() {
 
     useEffect(() => {}, [devStatus])
   
-  /* client.on('message', (topic, message) => {
-    console.log('Mensaje Recibido:', topic, '=>' , message.toString())
-          
-    var msj = message.toString()
+
+        const clientId = 'gera21'
+        const username = 'emqx'
+        const password = 'public'
+
+        const client = mqtt.connect('ws://158.101.42.167:8073/mqtt', {
+        clientId,
+        username,
+        password,
+        clean: true,
+        connectTimeout: 30*1000,
+        reconnectPeriod: 4000,
+        rejectUnauthorized: false
+        }) 
+
+        {client.subscribe('gera/gera31/casa/#', { qos: 0 }, (error) => {
+          if ( !error ){
+            console.log('Suscripción Exitosa')
+    
+        }
+        else{
+          console.log('Suscripción Fallida')
+        }
+      })}
   
-    if(msj == "1"){
-      //alert('ENCENDIDO')
-      setDevStatus(true)
-    }
-    if(msj == "0"){
-      //alert('APAGADO')
-      setDevStatus(false)
-    }
-  
-  })  */ 
-
-
-  /* const [devStatus, setDevStatus] = useState(true)
-
-  useEffect(() => {}, [devStatus]) */
-
+      {client.publish('topic', 'message', (error) => {
+      console.log(error || 'Mensaje Enviado')
+      })}
         
+    
+    
+    client.on('reconnect', (error) => {
+      console.log('Error al Reconectar:', error)
+      })
+      
+    {client.on('error', (error) => {
+      console.log('Error de Conexión:', error)
+    })}
+
+      {client.on('message', (topic, message) => {
+      console.log('Mensaje Recibido:', topic, '=>' , message.toString())
+            
+      var msj = message.toString()
+    
+      if(msj == "on"){
+        //alert('ENCENDIDO')
+        setDevStatus(true)
+      }
+      if(msj == "off"){
+        //alert('APAGADO')
+        setDevStatus(false)
+      }
+    
+    })} 
   
 
   return (
-    <BasicLayout relative>
-
-      
+    <BasicLayout relative> 
       
       <ArrowBack title='segovia' displayHome={false} />
 
