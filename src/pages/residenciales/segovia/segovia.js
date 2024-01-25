@@ -5,74 +5,87 @@ import { BasicLayout } from "@/layouts"
 import styles from "./segovia.module.css"
 import Device from "@/components/Device/Device"
 import { ArrowBack } from "@/components/ArrowBack"
-import mqtt from 'mqtt' 
+import mqtt from 'mqtt'
 
 
-export default function Segovia() {  
+export default function Segovia() {
 
-    const [devStatus, setDevStatus] = useState(true)
+  const [devStatus, setDevStatus] = useState(true)
 
-    useEffect(() => {}, [devStatus])
-  
+  useEffect(() => {
 
-        const clientId = 'gera21'
-        const username = 'emqx'
-        const password = 'public'
+  }, [devStatus])
 
-        const client = mqtt.connect('ws://158.101.42.167:8073/mqtt', {
-        clientId,
-        username,
-        password,
-        clean: true,
-        connectTimeout: 30*1000,
-        reconnectPeriod: 4000,
-        rejectUnauthorized: false
-        }) 
+  const clientId = 'gera21'
+  const username = 'emqx'
+  const password = 'public'
 
-        {client.subscribe('gera/gera31/casa/#', { qos: 0 }, (error) => {
-          if ( !error ){
-            console.log('Suscripción Exitosa')
-    
+  const client = mqtt.connect('ws://158.101.42.167:8073/mqtt', {
+    clientId,
+    username,
+    password,
+    clean: true,
+    connectTimeout: 30 * 1000,
+    reconnectPeriod: 4000,
+    rejectUnauthorized: false
+  })
+
+
+  useEffect(() => {
+    if (client) {
+      client.subscribe('gera/gera31/casa/#', { qos: 0 }, (error) => {
+        if (!error) {
+          console.log('Suscripción Exitosa')
+
         }
-        else{
+        else {
           console.log('Suscripción Fallida')
         }
-      })}
-  
-      {client.publish('topic', 'message', (error) => {
-      console.log(error || 'Mensaje Enviado')
-      })}
-        
-    
-    
-    client.on('reconnect', (error) => {
-      console.log('Error al Reconectar:', error)
       })
-      
-    {client.on('error', (error) => {
-      console.log('Error de Conexión:', error)
-    })}
 
-      {client.on('message', (topic, message) => {
-      console.log('Mensaje Recibido:', topic, '=>' , message.toString())
-            
-      var msj = message.toString()
-    
-      if(msj == "on"){
-        //alert('ENCENDIDO')
-        setDevStatus(true)
-      }
-      if(msj == "off"){
-        //alert('APAGADO')
-        setDevStatus(false)
-      }
-    
-    })} 
-  
+      client.publish('topic', 'message', (error) => {
+        console.log(error || 'Mensaje Enviado')
+      })
+
+      client.on("disconnect", (p) => {
+        console.log(p);
+      })
+
+
+      client.on('reconnect', (error) => {
+        if (!error) return;
+        console.log('Error al Reconectar:', error)
+      })
+
+      client.on('error', (error) => {
+        console.log('Error de Conexión:', error)
+      })
+
+      client.on('message', (topic, message) => {
+        console.log('Mensaje Recibido:', topic, '=>', message.toString())
+
+        var msj = message.toString()
+
+        if (msj == "on") {
+          //alert('ENCENDIDO')
+          setDevStatus(true)
+        }
+        if (msj == "off") {
+          //alert('APAGADO')
+          setDevStatus(false)
+        }
+
+      })
+    }
+  }, [])
+
+
+
+
 
   return (
-    <BasicLayout relative> 
-      
+    <BasicLayout relative>
+
       <ArrowBack title='segovia' displayHome={false} />
 
       <div
@@ -102,7 +115,7 @@ export default function Segovia() {
                 onOff={devStatus ? "ON" : "OFF"}
               />
               <Device
-              link="/devices/segovia/barreraresidentessalida"
+                link="/devices/segovia/barreraresidentessalida"
                 devName="Salida"
                 imgName={
                   devStatus ? "/img/barrera_wh.png" : "/img/barrera_red.png"
@@ -122,7 +135,7 @@ export default function Segovia() {
             </div>
             <div>
               <Device
-              link="/devices/segovia/barreravisitasentrada"
+                link="/devices/segovia/barreravisitasentrada"
                 devName="Entrada"
                 imgName={
                   devStatus ? "/img/barrera_wh.png" : "/img/barrera_red.png"
@@ -199,7 +212,7 @@ export default function Segovia() {
                 onOff={devStatus ? "ON" : "OFF"}
               />
               <Device
-              link="/devices/segovia/cercoelectricoleon"
+                link="/devices/segovia/cercoelectricoleon"
                 devName="Leon"
                 imgName={devStatus ? "/img/cerco_wh.png" : "/img/cerco_red.png"}
                 devBoxBackground={
@@ -210,7 +223,7 @@ export default function Segovia() {
                 onOff={devStatus ? "ON" : "OFF"}
               />
               <Device
-              link="/devices/segovia/cercoelectricoparamo"
+                link="/devices/segovia/cercoelectricoparamo"
                 devName="Paramo"
                 imgName={devStatus ? "/img/cerco_wh.png" : "/img/cerco_red.png"}
                 devBoxBackground={
@@ -221,7 +234,7 @@ export default function Segovia() {
                 onOff={devStatus ? "ON" : "OFF"}
               />
               <Device
-              link="/devices/segovia/cercoelectricoyza"
+                link="/devices/segovia/cercoelectricoyza"
                 devName="Yza"
                 imgName={devStatus ? "/img/cerco_wh.png" : "/img/cerco_red.png"}
                 devBoxBackground={
