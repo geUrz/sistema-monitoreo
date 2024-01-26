@@ -1,10 +1,7 @@
-import { Html, Head, Main, NextScript } from 'next/document'
-
+import { Html, Head, Main, NextScript } from "next/document";
+import SegoviaProvider from "./residenciales/segovia/Provider";
 
 export default function Document() {
-
-  
-
   return (
     <Html lang="es">
       <Head />
@@ -13,5 +10,5 @@ export default function Document() {
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }
